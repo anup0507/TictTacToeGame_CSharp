@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FE28D196-BB4C-4F64-8A36-18C5D635B236}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TicTacToeGame</RootNamespace>
+    <AssemblyName>TicTacToeGame</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controllers\GameController.cs" />
+    <Compile Include="Exceptions\DuplicateSymbolException.cs" />
+    <Compile Include="Exceptions\MoreThanOneBotCountException.cs" />
+    <Compile Include="Exceptions\PlayersCountDimensionMismatchException.cs" />
+    <Compile Include="Models\Board.cs" />
+    <Compile Include="Models\BotPlayer.cs" />
+    <Compile Include="Models\Cell.cs" />
+    <Compile Include="Models\Game.cs" />
+    <Compile Include="Models\Move.cs" />
+    <Compile Include="Models\Player.cs" />
+    <Compile Include="Models\Symbol.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Strategies\BotPlayingStrategies\EasyBotPlayingStrategy.cs" />
+    <Compile Include="Strategies\BotPlayingStrategies\HardBotPlayingStrategy.cs" />
+    <Compile Include="Strategies\BotPlayingStrategies\IBotPlayingStrategy.cs" />
+    <Compile Include="Strategies\BotPlayingStrategies\BotPlayingStrategyFactory.cs" />
+    <Compile Include="Strategies\BotPlayingStrategies\MediumBotPlayingStrategy.cs" />
+    <Compile Include="Strategies\WinningStrategies\ColWinningStrategy.cs" />
+    <Compile Include="Strategies\WinningStrategies\CornerWinningStrategy.cs" />
+    <Compile Include="Strategies\WinningStrategies\DiagonalWinningStrategy.cs" />
+    <Compile Include="Strategies\WinningStrategies\RowWinningStrategy.cs" />
+    <Compile Include="Strategies\WinningStrategies\WinningStrategy.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
